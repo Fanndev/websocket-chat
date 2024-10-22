@@ -4,7 +4,11 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:reset": "prisma migrate reset --force && prisma migrate dev && npm run seed --preview-feature",
+    "db:seed": "prisma db seed --preview-feature",
+    "db:migrate": "prisma migrate dev",
+    "seed": "ts-node prisma/seed.ts"
   },
   "author": "",
   "license": "ISC",
