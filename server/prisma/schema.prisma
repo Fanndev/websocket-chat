@@ -14,26 +14,26 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
+  id        Int         @id @default(autoincrement())
   username  String
   bio       String?
   avatar    String?
-  email     String   @unique
+  email     String      @unique
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Post      Post[]
+  Roomchat  Roomchat[]
+  Groupchat Groupchat[]
 
   @@map("users")
-  Post Post[]
-  Roomchat Roomchat[]
-  Groupchat Groupchat[]
 }
 
 model Post {
   id        Int      @id @default(autoincrement())
   body      String?
   userId    Int
-  user User @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
   media     String?
   privasi   Boolean
   last_chat DateTime @default(now())
@@ -46,7 +46,7 @@ model Roomchat {
   id        Int      @id @default(autoincrement())
   chat      String?
   userId    Int
-  user User @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
   image     String?
   pdf       String?
   word      String?
@@ -65,7 +65,7 @@ model Groupchat {
   member    String?
   admin     Int
   userId    Int
-  user User @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
   image     String?
   pdf       String?
   word      String?
@@ -75,4 +75,3 @@ model Groupchat {
 
   @@map("groupchats")
 }
-
