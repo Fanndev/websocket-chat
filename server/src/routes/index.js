@@ -1,5 +1,8 @@
-module.exports = (express, app) => {
-  const api_default = `/api`;
+import { Router } from "express";
+import authRouter from "./api/auth.routes.js";
 
-  require("./api/auth.routes")(express, app, api_default);
-};
+const apiRouter = Router();
+
+apiRouter.use("/api", authRouter);
+
+export default apiRouter;

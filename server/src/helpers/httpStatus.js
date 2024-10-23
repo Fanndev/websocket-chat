@@ -25,7 +25,7 @@ const ResponseMessage = {
   UserNotFound: "User not found",
   EmailAlreadyExist: "Email already registered",
   Success: "Successfully",
-  SuksesRegistered: "Successfully register.",
+  SuccsesRegistered: "Successfully register.",
   LoginSuccess: "You have successfully logged in.",
   LoginFailed: "Invalid credentials.",
   NotFound: "Data not found",
@@ -35,7 +35,9 @@ const ResponseMessage = {
   Wrongpass: "Wrong password",
 };
 
-module.exports = {
-  StatusCode,
-  ResponseMessage,
-};
+// module.exports = {
+//   StatusCode,
+//   ResponseMessage,
+// };
+
+export { StatusCode, ResponseMessage };

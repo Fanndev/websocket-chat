@@ -14,17 +14,18 @@ datasource db {
 }
 
 model User {
-  id        Int         @id @default(autoincrement())
-  username  String
-  bio       String?
-  avatar    String?
-  email     String      @unique
-  password  String
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
-  Post      Post[]
-  Roomchat  Roomchat[]
-  Groupchat Groupchat[]
+  id           Int         @id @default(autoincrement())
+  username     String
+  bio          String?
+  avatar       String?
+  email        String      @unique
+  password     String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  Post         Post[]
+  Roomchat     Roomchat[]
+  Groupchat    Groupchat[]
+  refreshToken String?
 
   @@map("users")
 }
